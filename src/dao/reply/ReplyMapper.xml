@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:写成mapper接口的全路径名 -->
+<mapper namespace="dao.reply.ReplyMapper">
+  <!-- 定义通过invid查询数据的方法的方法 -->
+  <select id="getAllByInvid" resultType="Reply" parameterType="int">
+    SELECT * FROM `reply_detail` WHERE invid=#{invid}
+  </select>
+  <!-- 添加回复 -->
+  <insert id="addReply" parameterType="Reply">
+  INSERT INTO `reply_detail`(invid,content,author,createdate)
+  VALUES(#{invid},#{content},#{author},#{createdate})
+  </insert>
+</mapper>

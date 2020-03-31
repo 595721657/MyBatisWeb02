@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<!-- 核心内容 -->
+<configuration>
+<!--         <settings>
+	    加载log4j 
+	    <setting name="logImpl" value="LOG4J" />
+        </settings> -->
+       <!-- 引用数据源配置文件 -->
+       <properties resource="datasource.properties"></properties>
+       <settings>
+          <setting name="logImpl" value="LOG4J" />
+       </settings>
+      <!-- 配置环境变量 -->
+      <!-- 为实体类去别名
+                   书写规范，一般跟数据库表中的表名相对应
+          type:全路径        
+       -->
+	<typeAliases>
+      <!-- 统一设置别名
+               设置entity包下面的所有实体类的别名
+               默认是类名
+       -->
+      <package name="entity"/>
+    </typeAliases>
+	<environments default="development">
+      <!-- 配置一个具体的环境变量 -->
+      <environment id="development">
+         <!--配置一个事务管理器  -->
+         <transactionManager type="JDBC"></transactionManager>
+         <!--配置一个数据源
+           mybatis自带的数据源POOLED 
+                      基于tomcat的数据源 JNDI
+                      -->
+         <dataSource type="POOLED">
+             <!-- 配置数据库驱动 -->
+             <property name="driver" value="${data.driver}"/>
+             <property name="url" value="${data.url}"/>
+             <property name="username" value="${data.username}"/>
+             <property name="password" value="${data.password}"/>
+         </dataSource>
+      </environment>
+   </environments>
+   <!--配置实体类与数据库表的sql映射文件  -->  
+   <mappers>
+   <!--resource:是给我们书写映射文件的全路径  -->
+     <!-- 可以定义package进行指定包的扫描 -->
+     <package name="dao"/>
+   </mappers>   
+</configuration>

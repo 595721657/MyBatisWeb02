@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:写成mapper接口的全路径名 -->
+<mapper namespace="dao.invitation.InvitationMapper">
+  <!-- 定义获得数据库所有数据的方法 -->
+  <select id="getAll" resultType="Invitation">
+    SELECT * FROM `invitation` ORDER BY createdate DESC
+  </select>
+  <!-- 通过title模糊查询 -->
+  <select id="getByTitle" parameterType="String" resultType="Invitation">
+   SELECT * FROM `invitation` WHERE title LIKE CONCAT('%',#{title},'%')
+   ORDER BY createdate DESC
+  </select>
+  <!-- 删除帖子 -->
+  <delete id="delInvitation">
+    DELETE FROM `invitation` WHERE id=#{id}
+  </delete>
+</mapper>
