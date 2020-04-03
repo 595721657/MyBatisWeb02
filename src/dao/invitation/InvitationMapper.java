@@ -13,4 +13,5 @@ public interface InvitationMapper {
 	List<Invitation> getByTitle(@Param("title") String title);
 	//É¾³ıÌû×Ó
 	int delInvitation(@Param("id") int id);
+	int countInvitation();
 } 

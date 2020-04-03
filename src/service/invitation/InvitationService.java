@@ -11,4 +11,6 @@ public interface InvitationService {
 	List<Invitation> getByTitle(String title);
 	//删除帖子
 	boolean delInvitation(int id);
+	//查询数据库的条数
+	int countInvitation();
 }

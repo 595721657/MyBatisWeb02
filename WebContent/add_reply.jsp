@@ -24,7 +24,7 @@
      </tr>
      <tr>
       <th>&nbsp;</th>
-      <td style="text-align: center;"><button type="submit">提交</button>||<button formaction="Reply?op=find&invid=${invid }">返回</button></td>
+      <td style="text-align: center;"><button type="submit" >提交</button>||<button formaction="Reply?op=find&invid=${invid }">返回</button></td>
      </tr>
    </table>
   </form>

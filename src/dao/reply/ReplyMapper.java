@@ -11,4 +11,5 @@ public interface ReplyMapper {
 	List<Reply> getAllByInvid(@Param("invid") int invid);
 	//Ìí¼ÓÆÀÂÛ
 	int addReply(Reply re);
+	int delReply(@Param("invid") int invid);
 }

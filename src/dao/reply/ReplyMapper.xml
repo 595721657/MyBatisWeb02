@@ -11,4 +11,8 @@
   INSERT INTO `reply_detail`(invid,content,author,createdate)
   VALUES(#{invid},#{content},#{author},#{createdate})
   </insert>
+  <!-- 删除回复 -->
+  <delete id="delReply">
+  DELETE FROM `reply_detail` WHERE invid=#{invid}
+  </delete>
 </mapper>

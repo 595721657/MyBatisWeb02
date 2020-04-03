@@ -15,4 +15,8 @@
   <delete id="delInvitation">
     DELETE FROM `invitation` WHERE id=#{id}
   </delete>
+  <!-- 查询数据库的条数 -->
+  <select id="countInvitation" resultType="int">
+    SELECT count(1) FROM `invitation`
+  </select>
 </mapper>

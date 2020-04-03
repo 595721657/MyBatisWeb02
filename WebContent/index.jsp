@@ -21,7 +21,7 @@
    <form action="Invitation?op=find" method="post">
 	 <table class="table table-hover table-striped">
 	  <tr>
-	    <td colspan="6" style="text-align: center;">帖子标题：<input type="text" name="title" value=""/><button type="submit">搜索</button></td>
+	    <td colspan="6" style="text-align: center;">帖子标题：<input type="text" name="title" value=""/>&nbsp;&nbsp;<button type="submit" class="btn btn-success">搜索</button></td>
 	  </tr>
 	  <tr>
 	   <th>序号</th>
@@ -38,13 +38,14 @@
 	     <td>${in.summary }</td>
 	     <td>${in.author }</td>
 	     <td><fmt:formatDate value="${in.createdate }" pattern="YYYY-MM-dd"/></td>
-	     <td><a href="Reply?op=find&invid=${in.id }">查看回复</a>||<a onclick="del('${in.id}')">删除</a></td>
+	     <td><a href="Reply?op=find&invid=${in.id }">查看回复</a>||<a onclick="del('${in.id}')" style="cursor:pointer">删除</a></td>
 	   </tr>
 	  </c:forEach>
 	 </table>	 
    </form>
 </div>
 <script type="text/javascript">
+/* 使用AJAX提交删除方法 */
 function del(id){
 	var r=confirm("是否删除");
 	if(r==true){

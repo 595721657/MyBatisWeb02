@@ -24,6 +24,7 @@ public class ReplyServiceImpl implements ReplyService {
 		sqlsession=MyBatisUtils.createSqlSession();
 		mapper=sqlsession.getMapper(ReplyMapper.class);
 		list=mapper.getAllByInvid(invid);
+		sqlsession.close();
 		return list;
 	}
     //Ìí¼ÓÊı¾İ
@@ -32,6 +33,18 @@ public class ReplyServiceImpl implements ReplyService {
 		sqlsession=MyBatisUtils.createSqlSession();
 		mapper=sqlsession.getMapper(ReplyMapper.class);
 		result=mapper.addReply(re);
+		if(result>0) {
+			sqlsession.commit();
+			return true;
+		}else {
+		    return false;
+		}
+	}
+	@Override
+	public boolean delReply(int invid) {
+		sqlsession=MyBatisUtils.createSqlSession();
+		mapper=sqlsession.getMapper(ReplyMapper.class);
+		result=mapper.delReply(invid);
 		if(result>0) {
 			sqlsession.commit();
 			return true;

@@ -47,7 +47,6 @@ public class ReplyServlet extends HttpServlet {
 			// 设置编码格式
 			req.setCharacterEncoding("UTF-8");
 			int invid=(int) req.getSession().getAttribute("invid");
-			System.out.println(""+invid);
 			String author=req.getParameter("author");
 			String content=req.getParameter("content");
 			//创建一个reply对象

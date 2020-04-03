@@ -18,7 +18,6 @@
 <body>
 <h2>回帖信息列表</h2>
 <div class="container">
-   <form action="Invitation?op=find" method="post">
 	 <table class="table table-hover table-striped">
 	  <tr>
 	    <td colspan="4" style="text-align: center;"><a href="add_reply.jsp">添加回复</a>||<a onclick="javascript :history.back(-1);" style="cursor:pointer">返回帖子列表</a></td>
@@ -38,7 +37,6 @@
 	   </tr>
 	  </c:forEach>
 	 </table>	 
-   </form>
 </div>
 </body>
 </html>

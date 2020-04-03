@@ -9,4 +9,6 @@ public interface ReplyService {
 	List<Reply> getAllByInvid(int invid);
 	//Ìí¼ÓÆÀÂÛ
 	boolean addReply(Reply re);
+	//É¾³ıÆÀÂÛ
+	boolean delReply(int invid);
 }
