@@ -19,4 +19,17 @@
   <select id="countInvitation" resultType="int">
     SELECT count(1) FROM `invitation`
   </select>
+    <!-- 查询数据库的条数通过title模糊查询的方法 -->
+  <select id="countInvitationBytitle" resultType="int" parameterType="String">
+    SELECT count(1) FROM `invitation` WHERE title LIKE CONCAT('%',#{title},'%')
+  </select>
+  <!--分页查询数据的方法  -->
+  <select id="getPageLists" resultType="Invitation">
+   SELECT * FROM `invitation` ORDER BY createdate DESC limit #{form},#{pageSize}
+  </select>
+  
+  <!-- 分页查询数据的方法根据title查询 -->
+  <select id="getPageListsByTitle" resultType="Invitation" >
+   SELECT * FROM `invitation` WHERE title LIKE CONCAT('%',#{title},'%') ORDER BY createdate DESC limit #{form},#{pageSize}
+  </select>
 </mapper>

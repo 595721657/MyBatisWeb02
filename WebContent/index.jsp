@@ -31,7 +31,7 @@
 	   <th>发布时间</th>
 	   <th>操作</th>
 	  </tr>
-	  <c:forEach items="${invitation }" var="in" varStatus = "status">
+	  <c:forEach items="${pg.pageLists  }" var="in" varStatus = "status">
 	   <tr>
 	     <td><c:out value="${status.count}"></c:out></td>
 	     <td>${in.title }</td>
@@ -43,6 +43,23 @@
 	  </c:forEach>
 	 </table>	 
    </form>
+   <!-- 分页 -->
+   <div class="row text-center">
+				<ul class="pagination">
+					<li>
+						<a href="Invitation?op=show&pageIndex=${pg.currPage-1 }">&laquo;</a>
+					</li>
+					<!--  -->
+					<c:forEach begin="1" end="${pg.totalPages }" varStatus="i">
+					  <li>
+						<a href="Invitation?op=show&pageIndex=${i.index }">第${i.index }页</a>
+					  </li>
+					</c:forEach>
+					<li>
+						<a href="Invitation?op=show&pageIndex=${pg.currPage+1 }">&raquo;</a>
+					</li>
+				</ul>
+       </div>
 </div>
 <script type="text/javascript">
 /* 使用AJAX提交删除方法 */

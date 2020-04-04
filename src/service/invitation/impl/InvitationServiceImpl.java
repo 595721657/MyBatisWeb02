@@ -83,4 +83,34 @@ public class InvitationServiceImpl implements InvitationService {
 		return result;
 	}
 
+	@Override
+	public int countInvitationBytitle(String title) {
+		sqlsession=MyBatisUtils.createSqlSession();
+		//获得mapper对象
+		mapper=sqlsession.getMapper(InvitationMapper.class);
+		result=mapper.countInvitationBytitle(title);
+		MyBatisUtils.closeSqlSession(sqlsession);
+		return result;
+	}
+
+	@Override
+	public List<Invitation> getPageLists(int currPage, int pageSize) {
+		sqlsession=MyBatisUtils.createSqlSession();
+		//获得mapper对象
+		mapper=sqlsession.getMapper(InvitationMapper.class);
+		list=mapper.getPageLists(currPage, pageSize);
+		MyBatisUtils.closeSqlSession(sqlsession);
+		return list;
+	}
+
+	@Override
+	public List<Invitation> getPageListsByTitle(int currPage, int pageSize, String title) {
+		sqlsession=MyBatisUtils.createSqlSession();
+		//获得mapper对象
+		mapper=sqlsession.getMapper(InvitationMapper.class);
+		list=mapper.getPageListsByTitle(currPage, pageSize, title);
+		MyBatisUtils.closeSqlSession(sqlsession);
+		return list;
+	}
+
 }
